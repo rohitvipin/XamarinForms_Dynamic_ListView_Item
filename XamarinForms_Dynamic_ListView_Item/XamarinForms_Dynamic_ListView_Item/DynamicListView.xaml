@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinForms_Dynamic_ListView_Item.DynamicListView">
+  <ListView VerticalOptions="FillAndExpand" HasUnevenRows="True" ItemsSource="{Binding AllItems}" SelectedItem="{Binding MySelectedItem}" >
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
+              <Label Text="{Binding MyText}" />
+              <Image Source="{Binding MyImage}" />
+            </StackLayout>
+            <Button Text="button" IsVisible="{Binding IsExtraControlsVisible}" />
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+
+</ContentPage>
