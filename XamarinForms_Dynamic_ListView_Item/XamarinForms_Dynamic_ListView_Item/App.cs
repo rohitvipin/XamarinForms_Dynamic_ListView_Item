@@ -6,8 +6,8 @@ namespace XamarinForms_Dynamic_ListView_Item
     {
         public App()
         {
-            //MainPage = new DynamicListView();
-            MainPage = new JumpListView();
+            MainPage = new DynamicListView();
+            //MainPage = new JumpListView();
         }
     }
 }
