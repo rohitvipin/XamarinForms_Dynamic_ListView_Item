@@ -2,16 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinForms_Dynamic_ListView_Item.DynamicListView">
-  <ListView VerticalOptions="FillAndExpand" HasUnevenRows="True" ItemsSource="{Binding AllItems}" SelectedItem="{Binding MySelectedItem}" >
+  <ListView VerticalOptions="FillAndExpand" HasUnevenRows="True" ItemsSource="{Binding AllItems}" SelectedItem="{Binding MySelectedItem}"
+            SeparatorColor="Transparent" SeparatorVisibility="None" BackgroundColor="Transparent">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
-          <StackLayout VerticalOptions="FillAndExpand">
-            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
+          <StackLayout>
+            <StackLayout Orientation="Horizontal">
               <Label Text="{Binding MyText}" />
               <Image Source="{Binding MyImage}" />
             </StackLayout>
-            <Button Text="button" IsVisible="{Binding IsExtraControlsVisible}" />
+            <StackLayout>
+              <Button Text="button" IsVisible="{Binding IsExtraControlsVisible}" />
+              <BoxView HeightRequest="1" Color="Gray" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
           </StackLayout>
         </ViewCell>
       </DataTemplate>

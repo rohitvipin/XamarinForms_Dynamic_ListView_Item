@@ -41,6 +41,10 @@
     </Compile>
     <Compile Include="DynamicListViewModel.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="JumpListViewModel.cs" />
+    <Compile Include="JumpListView.xaml.cs">
+      <DependentUpon>JumpListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DynamicListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="JumpListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

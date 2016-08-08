@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinForms_Dynamic_ListView_Item.JumpListView">
+
+
+  <RelativeLayout VerticalOptions="FillAndExpand">
+
+    <ListView VerticalOptions="FillAndExpand" HasUnevenRows="True" ItemsSource="{Binding AllItems}"
+              SeparatorColor="Transparent" SeparatorVisibility="None" BackgroundColor="Transparent"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+      <RelativeLayout.WidthConstraint>
+        <OnPlatform x:TypeArguments="Constraint" Android="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.9}"
+                    iOS="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=1}"
+          WinPhone="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=1}" />
+      </RelativeLayout.WidthConstraint>
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+
+            <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="Silver">
+
+              <Label Text="{Binding MyText}" />
+              <Button Text="button" />
+              <BoxView HeightRequest="1" Color="Gray" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" />
+
+            </StackLayout>
+
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+    <ListView VerticalOptions="FillAndExpand" HasUnevenRows="True" ItemsSource="{Binding AlphabetList}"
+              SeparatorColor="Transparent" SeparatorVisibility="None" BackgroundColor="Transparent"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.9}"
+      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.05}"
+      RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.9}">
+      <RelativeLayout.WidthConstraint>
+        <OnPlatform x:TypeArguments="Constraint" Android="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.1}"
+                    iOS="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0, Constant=0}"
+          WinPhone="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0, Constant=0}" />
+      </RelativeLayout.WidthConstraint>
+      <ListView.IsVisible>
+        <OnPlatform x:TypeArguments="x:Boolean" WinPhone="False" iOS="False" Android="True" />
+      </ListView.IsVisible>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Label Text="{Binding .}" TextColor="Red" FontSize="Micro" />
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </RelativeLayout>
+
+
+</ContentPage>

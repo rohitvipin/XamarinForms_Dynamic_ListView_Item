@@ -12,16 +12,16 @@ namespace XamarinForms_Dynamic_ListView_Item
         private ObservableCollection<Item> _allItems;
         private Item _mySelectedItem;
 
-        public DynamicListViewModel()
-        {
-            AllItems = new ObservableCollection<Item>(new List<Item> { new Item { MyText = "1" }, new Item { MyText = "2" }, new Item { MyText = "3" } });
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
+        public DynamicListViewModel()
+        {
+            AllItems = new ObservableCollection<Item>(new List<Item> { new Item { MyText = "1" }, new Item { MyText = "2" }, new Item { MyText = "3" } });
+        }
+        
         public ObservableCollection<Item> AllItems
         {
             get { return _allItems; }
